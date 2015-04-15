@@ -1,14 +1,38 @@
 doctype html
 html
   head
-    meta(charset='utf-8')      
+    meta(charset='utf-8')
+    title Apollo
     link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css')
     link(rel='stylesheet', href=isProd ? '/index.min.css' : '/index.css')
     link(rel='shortcut icon', href='/favicon.ico')
   body
-    
+    h1#header Todo
+    input#name(type='text', autofocus=true)
+    button#set-name Set Name
 
+    #controls
+      input#title(type='text', placeholder='Title')
+      input#due-date(type='date')
+      select#priority
+        option High
+        option Medium
+        option Low
+      button#create-task Create Task
 
-    script(src='/vendor/jquery/dist/jquery.min.js')
+    table#todos
+      thead
+        tr
+          th Delete
+          th Is Complete?
+          th Title
+          th Due Date
+          th Priority
+          th Created At
+      tbody
+
+    script(src='/vendor/moment/min/moment.min.js')
     script(src='/vendor/lodash/lodash.min.js')
+    script(src='/vendor/jquery/dist/jquery.min.js')
+    script(src='/vendor/firebase/firebase.js')
     script(src=isProd ? '/index.min.js' : '/index.js')
